@@ -16,7 +16,6 @@
         body {
             background-color: #0b0f19;
             color: #ffffff;
-            scroll-behavior: smooth;
         }
         /* Navbar Styling */
         header {
@@ -34,6 +33,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            cursor: pointer;
         }
         .logo-icon {
             font-size: 24px;
@@ -58,8 +58,9 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            cursor: pointer;
         }
-        nav a:hover {
+        nav a:hover, nav a.active {
             color: #38bdf8;
         }
         /* Dropdown Menu for Services */
@@ -101,30 +102,40 @@
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
         }
         .login-btn:hover {
             background-color: #dc2626;
         }
-        /* Hero Section */
-        .hero {
-            text-align: center;
+
+        /* Page Content Sections */
+        .page-section {
+            display: none;
             padding: 50px 20px;
             max-width: 900px;
             margin: 0 auto;
         }
+        .page-section.active {
+            display: block;
+        }
+
+        /* Home Section Styles */
         .hero h1 {
             font-size: 36px;
             margin-bottom: 10px;
             color: #ffffff;
+            text-align: center;
         }
         .hero p.subtitle {
             font-size: 16px;
             color: #94a3b8;
             margin-bottom: 25px;
+            text-align: center;
         }
         .hero-banner {
             width: 100%;
-            height: 350px;
+            height: 320px;
             background: linear-gradient(135deg, #1e293b, #0f172a);
             border-radius: 12px;
             border: 2px solid #1e293b;
@@ -134,8 +145,6 @@
             justify-content: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
         }
         .hero-banner i {
             font-size: 60px;
@@ -151,7 +160,6 @@
             color: #94a3b8;
             font-size: 14px;
         }
-        /* Blog / Article Section */
         .blog-section {
             background-color: #111827;
             border: 1px solid #1f2937;
@@ -170,23 +178,20 @@
             font-size: 15px;
             line-height: 1.6;
         }
-        /* About Us Section */
-        .about-section {
-            background-color: #0f172a;
-            padding: 50px 20px;
+
+        /* About Section Styles */
+        .about-container {
             text-align: center;
-            border-top: 1px solid #1e293b;
-            margin-top: 60px;
         }
-        .about-section h2 {
+        .about-container h2 {
             color: #38bdf8;
-            margin-bottom: 15px;
-            font-size: 26px;
+            margin-bottom: 20px;
+            font-size: 30px;
         }
-        .about-section .about-desc {
+        .about-desc {
             color: #94a3b8;
             max-width: 700px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 35px auto;
             font-size: 16px;
             line-height: 1.7;
         }
@@ -196,10 +201,10 @@
             gap: 15px;
             align-items: center;
             background: #111827;
-            max-width: 450px;
+            max-width: 480px;
             margin: 0 auto;
-            padding: 25px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 12px;
             border: 1px solid #1e293b;
         }
         .contact-item {
@@ -226,6 +231,102 @@
             color: #38bdf8;
             text-decoration: underline;
         }
+
+        /* Modal / Authentication Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #0f172a;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #1e293b;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 22px;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: #ffffff;
+        }
+        .modal-content h3 {
+            color: #38bdf8;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 22px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px 15px;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: #white;
+            color: #fff;
+            font-size: 14px;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #ef4444;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #dc2626;
+        }
+        .form-footer {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .form-footer a {
+            color: #38bdf8;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header {
@@ -245,71 +346,210 @@
 
     <!-- Navigation Bar -->
     <header>
-        <div class="logo-container">
+        <div class="logo-container" onclick="switchPage('home')">
             <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
             <div class="logo-text">MK Elite Solutions</div>
         </div>
         <nav>
-            <a href="#home">Home</a>
+            <a onclick="switchPage('home')" id="nav-home" class="active">Home</a>
             <!-- Services Dropdown -->
             <div class="dropdown">
-                <a href="#services">Services ▾</a>
+                <a id="nav-services">Services ▾</a>
                 <div class="dropdown-content">
-                    <a href="#services">Services</a>
-                    <a href="#products">Product</a>
-                    <a href="#orders">Order Details</a>
+                    <a onclick="checkAuthAndOpen('services')">Services</a>
+                    <a onclick="checkAuthAndOpen('products')">Product</a>
+                    <a onclick="checkAuthAndOpen('orders')">Order Details</a>
                 </div>
             </div>
-            <a href="#about">About Us</a>
+            <a onclick="switchPage('about')" id="nav-about">About Us</a>
         </nav>
         <div>
-            <a href="#login" class="login-btn">Login / Register</a>
+            <button class="login-btn" onclick="openModal('loginModal')">Login / Register</button>
         </div>
     </header>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <h1>শূন্য থেকে সফলতার পথ</h1>
-        <p class="subtitle">অনলাইন আর্নিং, কর্মসংস্থান তৈরি এবং বিজনেস গাইডলাইনের আধুনিক প্ল্যাটফর্ম।</p>
-        
-        <!-- Visual Banner Box -->
-        <div class="hero-banner">
-            <i class="fa-solid fa-flag-checkered"></i>
-            <h3>MK Elite Solutions</h3>
-            <p>বেকারত্ব ও হতাশা কাটিয়ে সফলতার পথে এগিয়ে যাওয়ার বিশ্বস্ত মাধ্যম</p>
-        </div>
+    <!-- Home Page Section -->
+    <section id="homePage" class="page-section active">
+        <div class="hero">
+            <h1>শূন্য থেকে সফলতার পথ</h1>
+            <p class="subtitle">অনলাইন আর্নিং, কর্মসংস্থান তৈরি এবং বিজনেস গাইডলাইনের আধুনিক প্ল্যাটফর্ম।</p>
+            
+            <div class="hero-banner">
+                <i class="fa-solid fa-flag-checkered"></i>
+                <h3>MK Elite Solutions</h3>
+                <p>বেকারত্ব ও হতাশা কাটিয়ে সফলতার পথে এগিয়ে যাওয়ার বিশ্বস্ত মাধ্যম</p>
+            </div>
 
-        <!-- Custom Post / Article Space -->
-        <div class="blog-section">
-            <h3>সাম্প্রতিক কলাম ও আর্টিকেল</h3>
-            <p>এখানে আপনি আপনার নিয়মিত চিন্তা-ভাবনা, ব্লগ পোস্ট বা গুরুত্বপূর্ণ আপডেটগুলো খুব সুন্দরভাবে প্রকাশ করতে পারবেন। বেকারত্ব ও হতাশা কাটিয়ে কীভাবে সফলতার পথে এগিয়ে যাওয়া যায়, সে বিষয়ে আপনার কলামগুলো এখানে যুক্ত করতে পারেন।</p>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <p class="about-desc">MK Elite Solutions এমন একটি আধুনিক প্ল্যাটফর্ম যা বেকারত্ব দূরীকরণ, অনলাইন আর্নিং এবং সঠিক বিজনেস গাইডলাইন প্রদানের মাধ্যমে যুবসমাজকে স্বাবলম্বী করে তুলতে কাজ করে যাচ্ছে। আমাদের লক্ষ্য শূন্য থেকে সফলতার একটি সুনির্দিষ্ট পথ তৈরি করা।</p>
-        
-        <div class="contact-box">
-            <div class="contact-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>ঢাকা, বাংলাদেশ</span>
-            </div>
-            <div class="contact-item">
-                <i class="fa-solid fa-phone"></i>
-                <span>+880 1700-000000</span>
-            </div>
-            <div class="contact-item">
-                <i class="fa-solid fa-envelope"></i>
-                <span>support@mkelitsolution.com</span>
-            </div>
-            <div class="contact-item">
-                <i class="fa-brands fa-facebook"></i>
-                <a href="https://facebook.com" target="_blank">MK Elite Solutions Facebook Page</a>
+            <div class="blog-section">
+                <h3>সাম্প্রতিক কলাম ও আর্টিকেল</h3>
+                <p>এখানে আপনি আপনার নিয়মিত চিন্তা-ভাবনা, ব্লগ পোস্ট বা গুরুত্বপূর্ণ আপডেটগুলো খুব সুন্দরভাবে প্রকাশ করতে পারবেন। বেকারত্ব ও হতাশা কাটিয়ে কীভাবে সফলতার পথে এগিয়ে যাওয়া যায়, সে বিষয়ে আপনার কলামগুলো এখানে যুক্ত করতে পারেন।</p>
             </div>
         </div>
     </section>
 
+    <!-- About Us Page Section -->
+    <section id="aboutPage" class="page-section">
+        <div class="about-container">
+            <h2>About Us</h2>
+            <p class="about-desc">MK Elite Solutions এমন একটি আধুনিক প্ল্যাটফর্ম যা বেকারত্ব দূরীকরণ, অনলাইন আর্নিং এবং সঠিক বিজনেস গাইডলাইন প্রদানের মাধ্যমে যুবসমাজকে স্বাবলম্বী করে তুলতে কাজ করে যাচ্ছে। আমাদের লক্ষ্য শূন্য থেকে সফলতার একটি সুনির্দিষ্ট পথ তৈরি করা।</p>
+            
+            <div class="contact-box">
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>ঢাকা, বাংলাদেশ</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+880 1700-000000</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>support@mkelitsolution.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-facebook"></i>
+                    <a href="https://www.facebook.com" target="_blank">MK Elite Solutions Facebook Page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+            <h3>লগইন করুন</h3>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>জিমেইল (Gmail)</label>
+                    <input type="email" placeholder="আপনার জিমেইল লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label>পাসওয়ার্ড (Password)</label>
+                    <input type="password" placeholder="পাসওয়ার্ড দিন" required>
+                </div>
+                <button type="submit" class="submit-btn">লগইন</button>
+                <div class="form-footer">
+                    <p>পাসওয়ার্ড ভুলে গেছেন? <a onclick="switchModal('loginModal', 'resetModal')">রিসেট করুন</a></p>
+                    <p style="margin-top: 8px;">একাউন্ট নেই? <a onclick="switchModal('loginModal', 'registerModal')">রেজিস্ট্রেশন করুন</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('registerModal')">&times;</span>
+            <h3>নতুন একাউন্ট তৈরি</h3>
+            <form onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label>নাম (Full Name)</label>
+                    <input type="text" placeholder="আপনার পুরো নাম দিন" required>
+                </div>
+                <div class="form-group">
+                    <label>জিমেইল (Gmail)</label>
+                    <input type="email" placeholder="আপনার জিমেইল দিন" required>
+                </div>
+                <div class="form-group">
+                    <label>ফোন নম্বর (Phone Number)</label>
+                    <input type="tel" placeholder="আপনার ফোন নম্বর দিন" required>
+                </div>
+                <div class="form-group">
+                    <label>পাসওয়ার্ড (Password)</label>
+                    <input type="password" placeholder="একটি শক্তিশালী পাসওয়ার্ড দিন" required>
+                </div>
+                <button type="submit" class="submit-btn">রেজিস্ট্রেশন</button>
+                <div class="form-footer">
+                    <p style="margin-top: 8px;">ইতিমধ্যে একাউন্ট আছে? <a onclick="switchModal('registerModal', 'loginModal')">লগইন করুন</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Password Reset Modal -->
+    <div id="resetModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('resetModal')">&times;</span>
+            <h3>পাসওয়ার্ড রিকভারি</h3>
+            <form onsubmit="handleReset(event)">
+                <div class="form-group">
+                    <label>আপনার রেজিস্টার্ড জিমেইল</label>
+                    <input type="email" placeholder="আপনার জিমেইল দিন" required>
+                </div>
+                <button type="submit" class="submit-btn">রিসেট লিংক পাঠান</button>
+                <div class="form-footer">
+                    <p style="margin-top: 8px;"><a onclick="switchModal('resetModal', 'loginModal')">লগইন পেজে ফিরে যান</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Tab Switching and Authentication Flow -->
+    <script>
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('nav > a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            if(pageId === 'home') {
+                document.getElementById('homePage').classList.add('active');
+                document.getElementById('nav-home').classList.add('active');
+            } else if(pageId === 'about') {
+                document.getElementById('aboutPage').classList.add('active');
+                document.getElementById('nav-about').classList.add('active');
+            }
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function switchModal(currentId, targetId) {
+            closeModal(currentId);
+            openModal(targetId);
+        }
+
+        function checkAuthAndOpen(serviceType) {
+            let isLoggedIn = false; // বর্তমানে চেক করার জন্য ফলস রাখা হয়েছে
+            if (!isLoggedIn) {
+                alert("এই সার্ভিসে প্রবেশ করতে হলে প্রথমে লগইন অথবা রেজিস্ট্রেশন করতে হবে।");
+                openModal('loginModal');
+            } else {
+                alert(serviceType + " পেইজে স্বাগতম!");
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            alert("লগইন সফল হয়েছে!");
+            closeModal('loginModal');
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            alert("রেজিস্ট্রেশন সফল হয়েছে! এবার লগইন করুন।");
+            switchModal('registerModal', 'loginModal');
+        }
+
+        function handleReset(event) {
+            event.preventDefault();
+            alert("পাসওয়ার্ড রিস্টোর করার নির্দেশাবলী আপনার জিমেইলে পাঠানো হয়েছে।");
+            closeModal('resetModal');
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
