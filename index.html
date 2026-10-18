@@ -1,196 +1,124 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MK Elite Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>MK Elite Solution</title>
     <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: #131b2e;
-            --accent-red: #e63946;
-            --text-main: #f8f9fa;
-            --text-muted: #94a3b8;
-            --border-color: #1e293b;
-        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
+            background-color: #0b0f19;
+            color: #ffffff;
         }
+        /* Navbar Styling */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .logo-area h1 {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: var(--accent-red);
-        }
-        .nav-btn {
-            background: var(--accent-red);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .nav-btn:hover {
-            opacity: 0.9;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-        .hero p {
-            color: var(--text-muted);
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-        #login-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
+            background-color: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
-        .login-box {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 400px;
-            border: 1px solid var(--border-color);
-            text-align: center;
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #38bdf8;
         }
-        .login-box input {
-            width: 100%;
-            padding: 12px;
-            margin: 15px 0;
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #38bdf8;
+        }
+        .login-btn {
+            background-color: #ef4444;
             color: white;
+            padding: 8px 18px;
             border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
-        #dashboard {
-            display: none;
+        .login-btn:hover {
+            background-color: #dc2626;
         }
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
         }
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-        .card h3 {
+        .hero h1 {
+            font-size: 42px;
             margin-bottom: 15px;
-            color: var(--accent-red);
+            color: #ffffff;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            background-color: #ef4444;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <header>
-        <div class="logo-area">
-            <h1>MK Elite Solutions</h1>
+        <div class="logo">MK Elite Solutions</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#about">About Us</a>
+        </nav>
+        <div>
+            <a href="#login" class="login-btn">Login</a>
         </div>
-        <button class="nav-btn" onclick="openLogin()">প্রাইভেট ড্যাশবোর্ড</button>
     </header>
 
-    <div class="container">
-        <div id="public-page" class="hero">
-            <h2>শূন্য থেকে সফলতার পথ</h2>
-            <p>অনলাইন আর্নিং, কর্মসংস্থান তৈরি এবং বিজনেস গাইডলাইনের আধুনিক প্ল্যাটফর্ম।</p>
-            <button class="nav-btn" onclick="openLogin()">লগইন করুন</button>
-        </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>শূন্য থেকে সফলতার পথ</h1>
+        <p>অনলাইন আর্নিং, কর্মসংস্থান তৈরি এবং বিজনেস গাইডলাইনের আধুনিক প্ল্যাটফর্ম।</p>
+        <a href="#login" class="cta-btn">লগইন করুন</a>
+    </section>
 
-        <div id="dashboard">
-            <h2>স্বাগতম, আপনার প্রাইভেট ড্যাশবোর্ডে</h2>
-            <div class="dashboard-grid">
-                <div class="card">
-                    <h3>📢 নিউজ ফিড (খেলা ও ট্রেডিং)</h3>
-                    <p>লাইভ আপডেট ও খবরের ডাটা এখানে প্রদর্শিত হবে।</p>
-                </div>
-                <div class="card">
-                    <h3>💡 মোটিভেশনাল টিভি বক্স</h3>
-                    <p>আপনার তাৎক্ষণিক চিন্তাভাবনা ও নোটসমূহ।</p>
-                </div>
-                <div class="card">
-                    <h3>🗣️ এআই গ্রুপ চ্যাট (Gemini & Claude)</h3>
-                    <p>আমাদের সাথে সরাসরি যোগাযোগের নিরাপদ চ্যাট বক্স।</p>
-                </div>
-                <div class="card">
-                    <h3>📚 ইংলিশ লার্নিং ও প্রজেক্ট</h3>
-                    <p>দৈনিক প্রজেক্ট ও ভাষা শেখার মডিউল।</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="login-modal">
-        <div class="login-box">
-            <h3>গোপন পিন বা পাসওয়ার্ড দিন</h3>
-            <input type="password" id="password-input" placeholder="পাসওয়ার্ড লিখুন...">
-            <button class="nav-btn" onclick="checkPassword()">প্রবেশ করুন</button>
-            <button class="nav-btn" style="background:#334155; margin-top:10px;" onclick="closeLogin()">বন্ধ করুন</button>
-        </div>
-    </div>
-
-    <script>
-        function openLogin() {
-            document.getElementById('login-modal').style.display = 'flex';
-        }
-        function closeLogin() {
-            document.getElementById('login-modal').style.display = 'none';
-        }
-        function checkPassword() {
-            const pass = document.getElementById('password-input').value;
-            if(pass === 'mkelite123') {
-                document.getElementById('public-page').style.display = 'none';
-                document.getElementById('dashboard').style.display = 'block';
-                closeLogin();
-            } else {
-                alert('ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।');
-            }
-        }
-    </script>
 </body>
 </html>
