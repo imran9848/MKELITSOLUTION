@@ -35,12 +35,11 @@
             gap: 12px;
             cursor: pointer;
         }
-        .logo-icon {
-            font-size: 24px;
-            color: #ef4444;
-            background: #1e293b;
-            padding: 10px;
+        .logo-img {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
+            object-fit: cover;
             border: 2px solid #ef4444;
         }
         .logo-text {
@@ -112,7 +111,7 @@
         /* Page Content Sections */
         .page-section {
             display: none;
-            padding: 50px 20px;
+            padding: 40px 20px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -133,32 +132,19 @@
             margin-bottom: 25px;
             text-align: center;
         }
-        .hero-banner {
+        .hero-banner-container {
             width: 100%;
-            height: 320px;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
             border-radius: 12px;
+            overflow: hidden;
             border: 2px solid #1e293b;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             margin-bottom: 30px;
+            background-color: #111827;
         }
-        .hero-banner i {
-            font-size: 60px;
-            color: #38bdf8;
-            margin-bottom: 15px;
-        }
-        .hero-banner h3 {
-            font-size: 24px;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-        .hero-banner p {
-            color: #94a3b8;
-            font-size: 14px;
+        .hero-banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         .blog-section {
             background-color: #111827;
@@ -288,7 +274,6 @@
             background-color: #1e293b;
             border: 1px solid #334155;
             border-radius: 6px;
-            color: #white;
             color: #fff;
             font-size: 14px;
         }
@@ -347,7 +332,7 @@
     <!-- Navigation Bar -->
     <header>
         <div class="logo-container" onclick="switchPage('home')">
-            <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+            <img src="1792334740438.jpg" alt="MK Elite Logo" class="logo-img">
             <div class="logo-text">MK Elite Solutions</div>
         </div>
         <nav>
@@ -374,10 +359,9 @@
             <h1>শূন্য থেকে সফলতার পথ</h1>
             <p class="subtitle">অনলাইন আর্নিং, কর্মসংস্থান তৈরি এবং বিজনেস গাইডলাইনের আধুনিক প্ল্যাটফর্ম।</p>
             
-            <div class="hero-banner">
-                <i class="fa-solid fa-flag-checkered"></i>
-                <h3>MK Elite Solutions</h3>
-                <p>বেকারত্ব ও হতাশা কাটিয়ে সফলতার পথে এগিয়ে যাওয়ার বিশ্বস্ত মাধ্যম</p>
+            <!-- Banner Image -->
+            <div class="hero-banner-container">
+                <img src="1792334824784.jpg" alt="MK Elite Solutions Banner">
             </div>
 
             <div class="blog-section">
@@ -518,7 +502,7 @@
         }
 
         function checkAuthAndOpen(serviceType) {
-            let isLoggedIn = false; // বর্তমানে চেক করার জন্য ফলস রাখা হয়েছে
+            let isLoggedIn = false;
             if (!isLoggedIn) {
                 alert("এই সার্ভিসে প্রবেশ করতে হলে প্রথমে লগইন অথবা রেজিস্ট্রেশন করতে হবে।");
                 openModal('loginModal');
