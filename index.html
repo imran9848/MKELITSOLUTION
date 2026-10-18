@@ -35,13 +35,12 @@
             gap: 12px;
             cursor: pointer;
         }
-        .logo-img {
+        .logo-svg {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            object-fit: cover;
             border: 2px solid #ef4444;
-            background-color: #1e293b;
+            background: #111827;
         }
         .logo-text {
             font-size: 20px;
@@ -133,19 +132,34 @@
             margin-bottom: 25px;
             text-align: center;
         }
-        .hero-banner-container {
+        .hero-banner-box {
             width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #111827, #1e293b);
             border-radius: 12px;
-            overflow: hidden;
             border: 2px solid #1e293b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             margin-bottom: 30px;
-            background-color: #111827;
+            text-align: center;
+            padding: 20px;
         }
-        .hero-banner-container img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .hero-banner-box i {
+            font-size: 55px;
+            color: #ef4444;
+            margin-bottom: 15px;
+        }
+        .hero-banner-box h2 {
+            font-size: 26px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+        .hero-banner-box p {
+            color: #94a3b8;
+            font-size: 15px;
         }
         .blog-section {
             background-color: #111827;
@@ -333,7 +347,12 @@
     <!-- Navigation Bar -->
     <header>
         <div class="logo-container" onclick="switchPage('home')">
-            <img src="https://i.ibb.co.com/83p7312/1792334740438.jpg" alt="MK Elite Logo" class="logo-img">
+            <!-- SVG Logo to prevent any image loading errors -->
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="48" fill="#0f172a" stroke="#ef4444" stroke-width="4"/>
+                <path d="M30 65 L50 35 L70 65 Z" fill="#ef4444"/>
+                <text x="50" y="78" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">MK</text>
+            </svg>
             <div class="logo-text">MK Elite Solutions</div>
         </div>
         <nav>
@@ -360,9 +379,11 @@
             <h1>শূন্য থেকে সফলতার পথ</h1>
             <p class="subtitle">অনলাইন আর্নিং, কর্মসংস্থান তৈরি এবং বিজনেস গাইডলাইনের আধুনিক প্ল্যাটফর্ম।</p>
             
-            <!-- Banner Image -->
-            <div class="hero-banner-container">
-                <img src="https://i.ibb.co.com/39wF4q8C/1792334824784.jpg" alt="MK Elite Solutions Banner">
+            <!-- Professional Banner Box -->
+            <div class="hero-banner-box">
+                <i class="fa-solid fa-rocket"></i>
+                <h2>MK Elite Solutions</h2>
+                <p>বেকারত্ব ও হতাশা কাটিয়ে সফলতার পথে এগিয়ে যাওয়ার বিশ্বস্ত মাধ্যম — আপনার স্বপ্নের সারথি।</p>
             </div>
 
             <div class="blog-section">
@@ -537,5 +558,4 @@
         }
     </script>
 </body>
-    </html>
-    
+</html>
